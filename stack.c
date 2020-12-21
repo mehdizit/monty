@@ -67,3 +67,22 @@ void pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 		current = current->next;
 	}
 }
+/**
+ * pint - prints value at the top of the stack
+ * @stack: pointer to stack
+ * @line_number: line number of instruction
+ * Return: void
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	int i;
+	
+	if (stack == NULL || *stack == NULL)
+	{
+		printf("L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	i = (*stack)->n;
+	printf("%d\n", i);
+}
+	
