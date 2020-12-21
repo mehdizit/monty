@@ -85,4 +85,22 @@ void pint(stack_t **stack, unsigned int line_number)
 	i = (*stack)->n;
 	printf("%d\n", i);
 }
-	
+/**
+ * pop - remove item at the top of stack
+ * @stack: pointer to stack
+ * @line_number: line number of instruction
+ * Return: void, exit with -1 on failure
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *next;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		printf("L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	next = (*stack)->next;
+	free(*stack);
+	*stack = next;
+}
