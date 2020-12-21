@@ -49,6 +49,7 @@ void pall(stack_t **stack, unsigned int __attribute__((unused))line_number);
 int opcode_struct(char *opcode, stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void free_all(stack_t *stack, char *line, FILE *fp);
+void pint(stack_t **stack, unsigned int line_number);
 
 
 #endif
