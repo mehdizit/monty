@@ -19,6 +19,7 @@ int opcode_struct(char *opcode, stack_t **stack, unsigned int line_number)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", monty_add},
+		{"nop", monty_nop},
 		{NULL, NULL}
 	};
 
