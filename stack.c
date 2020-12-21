@@ -6,22 +6,22 @@
  * @n: value of new item on stack
  * Return: void, exit with -1 on failure
  */
-void push(stack_t **stack, unsigned int line_number, char *n )
+void push(stack_t **stack, unsigned int line_number, char *c )
 {
 
 	int i;
 	stack_t *new = NULL;
 
-	if (n == NULL)
+	if (c == NULL)
 	{
 		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; n[i] != '\0'; i++)
+	for (i = 0; c[i] != '\0'; i++)
 	{
-		if (n[0] == '-' && i == 0)
+		if (c[0] == '-' && i == 0)
 			continue;
-		if (isdigit(n[i] == 0))
+		if (isdigit(c[i] == 0))
 		{
 			printf("L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
@@ -35,7 +35,7 @@ void push(stack_t **stack, unsigned int line_number, char *n )
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = atoi(n);
+	new->n = atoi(c);
 	new->prev = NULL;
 	new->next = NULL;
 
@@ -103,4 +103,27 @@ void pop(stack_t **stack, unsigned int line_number)
 	next = (*stack)->next;
 	free(*stack);
 	*stack = next;
+}
+/**
+ * swap - swaps the value of the top two elements on the stack
+ * @stack: pointer to stack
+ * @line_number: line number of instruction
+ * Return: void, exit with -1 on failure
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int tmp1;
+	int tmp2;
+
+	if (stack_length(stack) < 2)
+	{
+		printf("L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tmp1 = (*stack)->n;
+	tmp2 = (*stack)->next->n;
+
+	(*stack)->n = tmp2;
+	(*stack)->next->n = tmp1;
 }

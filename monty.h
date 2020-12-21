@@ -44,12 +44,14 @@ typedef struct instruction_s
 } instruction_t;
 
 
-void push(stack_t **stack, unsigned int line_number, char *n);
+void push(stack_t **stack, unsigned int line_number, char *c);
 void pall(stack_t **stack, unsigned int __attribute__((unused))line_number);
 int opcode_struct(char *opcode, stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void free_all(stack_t *stack, char *line, FILE *fp);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+size_t stack_length(stack_t **stack);
+void swap(stack_t **stack, unsigned int line_number);
 
 #endif
