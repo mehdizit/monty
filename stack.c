@@ -139,7 +139,7 @@ void monty_add(stack_t **stack, unsigned int line_number)
 {
 	int i, j, add;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL))
 	{
 		printf("L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
