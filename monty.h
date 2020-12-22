@@ -55,5 +55,6 @@ size_t stack_length(stack_t **stack);
 void swap(stack_t **stack, unsigned int line_number);
 void monty_add(stack_t **stack, unsigned int line_number);
 void monty_nop(stack_t **stack, unsigned int line_number);
-
+void free_dlistint(stack_t *head);
+void _sub(stack_t **stack, unsigned int line_number);
 #endif
