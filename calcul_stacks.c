@@ -1,15 +1,5 @@
 #include "monty.h"
-void free_dlistint(stack_t *head)
-{
-	stack_t *tmp;
 
-	while (head != NULL)
-	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
-	}
-}
 void _sub(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || (*stack)->next == NULL)

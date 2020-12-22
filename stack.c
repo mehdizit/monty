@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * push - add new item to top of stack
  * @stack: pointer to stack
@@ -15,6 +16,8 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 	if (c == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		if (*stack)
+			free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; c[i] != '\0'; i++)
@@ -63,7 +66,7 @@ void pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 
 	while (current != NULL)
 	{
-		fprintf(stderr, "%d\n", current->n);
+		printf("%d\n", current->n);
 		current = current->next;
 	}
 }
