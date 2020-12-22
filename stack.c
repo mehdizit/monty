@@ -14,7 +14,7 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 
 	if (c == NULL)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	for (i = 0; c[i] != '\0'; i++)
@@ -23,7 +23,7 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 			continue;
 		if (isdigit(c[i] == 0))
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -63,7 +63,7 @@ void pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
 
 	while (current != NULL)
 	{
-		printf("%d\n", current->n);
+		fprintf(stderr, "%d\n", current->n);
 		current = current->next;
 	}
 }
