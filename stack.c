@@ -31,8 +31,8 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		printf("Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "Error: malloc failed\n");
+		return (EXIT_FAILURE);
 	}
 
 	new->n = atoi(c);
