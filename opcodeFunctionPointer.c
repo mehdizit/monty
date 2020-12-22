@@ -23,6 +23,7 @@ int opcode_struct(char *opcode, stack_t **stack, unsigned int line_number)
 		{"sub", _sub},
 		{"div", _div},
 		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
