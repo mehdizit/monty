@@ -11,7 +11,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-#define DELIMITERS "\n\t\r "
+#define DELIMITERS " \n\t\r\a\b"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
