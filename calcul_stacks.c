@@ -42,3 +42,17 @@ void _div(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n /= (*stack)->n;
 	pop(stack, line_number);
 }
+
+void _mul(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		printf("L%d: can't mul, stack too short\n", line_number);
+		if (*stack)
+			free_dlistint(*stack);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n *= (*stack)->n;
+	pop(stack, line_number);
+}
+	
