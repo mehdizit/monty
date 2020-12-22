@@ -150,7 +150,9 @@ void monty_add(stack_t **stack, unsigned int line_number)
 
 	if (stack_length(stack) < 2)
 	{
-		printf("L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		if (*stack)
+			free_dlistint(*stack);
 		exit(EXIT_FAILURE);
 	}
 	i = (*stack)->n;
