@@ -172,8 +172,6 @@ void monty_add(stack_t **stack, unsigned int line_number)
  */
 void monty_nop(stack_t **stack, unsigned int line_number)
 {
-	if (*stack)
-		free_dlistint(*stack);
 	(void)stack;
 	(void)line_number;
 }
