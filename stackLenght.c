@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * stack_length - returns length of stack
  * @stack: pointer to head of stack

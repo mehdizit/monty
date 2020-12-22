@@ -1,15 +1,13 @@
 #include "monty.h"
-
 /**
  * push - add new item to top of stack
  * @stack: pointer to stack
  * @line_number: line number of instruction
- * @n: value of new item on stack
+ * @c: value of new item on stack
  * Return: void, exit with -1 on failure
  */
-void push(stack_t **stack, unsigned int line_number, char *c )
+void push(stack_t **stack, unsigned int line_number, char *c)
 {
-
 	int i;
 	stack_t *new = NULL;
 
@@ -35,7 +33,7 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	new->n = atoi(c);
@@ -48,47 +46,6 @@ void push(stack_t **stack, unsigned int line_number, char *c )
 		(*stack)->prev = new;
 	}
 	*stack = new;
-}
-	
-				
-/**
- * pall - prints the value of all items on the stack
- * @stack: pointer to stack
- * @line_number: line number of instruction
- * Return: void
- */
-void pall(stack_t **stack, unsigned int __attribute__((unused))line_number)
-{
-	stack_t *current = *stack;
-
-	if (stack == NULL || *stack == NULL)
-		return;
-
-	while (current != NULL)
-	{
-		printf("%d\n", current->n);
-		current = current->next;
-	}
-}
-/**
- * pint - prints value at the top of the stack
- * @stack: pointer to stack
- * @line_number: line number of instruction
- * Return: void
- */
-void pint(stack_t **stack, unsigned int line_number)
-{
-	int i;
-	
-	if (stack == NULL || *stack == NULL)
-	{
-		fprintf(stderr, "L<%d>: can't pint, stack empty\n", line_number);
-		if (*stack)
-			free_dlistint(*stack);
-		exit(EXIT_FAILURE);
-	}
-	i = (*stack)->n;
-	printf("%d\n", i);
 }
 /**
  * pop - remove item at the top of stack
@@ -135,34 +92,6 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	(*stack)->n = tmp2;
 	(*stack)->next->n = tmp1;
-}
-/**
- * monty_add - Adds the top two values of a stack_t linked list.
- * @stack: A pointer to the top mode node of a stack_t linked list.
- * @line_number: The current working line number of a Monty bytecodes file.
- *
- * Description: The result is stored in the second value node
- *              from the top and the top value  is removed.
- */
-void monty_add(stack_t **stack, unsigned int line_number)
-{
-	int i, j, add;
-
-	if (stack_length(stack) < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		if (*stack)
-			free_dlistint(*stack);
-		exit(EXIT_FAILURE);
-	}
-	i = (*stack)->n;
-	j = (*stack)->next->n;
-
-	add = i + j;
-
-	pop(stack, line_number);
-
-	(*stack)->n = add;
 }
 
 /**
