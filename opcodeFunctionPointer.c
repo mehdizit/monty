@@ -26,6 +26,7 @@ int opcode_struct(char *opcode, stack_t **stack, unsigned int line_number)
 		{"mod", _mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", _rotl},
 		{NULL, NULL}
 	};
 
